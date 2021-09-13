@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(2, 0, 36);
+  background: radial-gradient(
+    circle,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(22, 88, 9, 1) 21%,
+    rgba(0, 73, 18, 1) 54%
+  );
+  background-attachment: fixed;
+}
+a {
+  text-decoration: none;
+  color: blanchedalmond;
+}
+
+#header {
+  background: black;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+#header-profile {
+  align-self: flex-end;
+}
