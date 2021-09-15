@@ -41,7 +41,8 @@ function getArtist(name) {
 	console.log(API_AUTHTOKEN);
 	
 	var xhr = new XMLHttpRequest();
-
+	
+	//TODO: Encode name in approperate format for URI to accept Cyrillics
 	xhr.open("GET", 'https://api.spotify.com/v1/search?q=' + name + '&type=artist&limit=1', false);
 
 	xhr.setRequestHeader('Accept', 'application/json');
@@ -50,9 +51,8 @@ function getArtist(name) {
 	console.log("Bearer " + API_AUTHTOKEN);	
 	xhr.onreadystatechange = function() { // Call a function when the state changes.
 	    if (this.readyState === XMLHttpRequest.DONE) {
-		console.log(xhr.responseText);
-		var temp = xhr.responseText;
-		console.log(temp);
+		var temp = JSON.parse(xhr.responseText);
+		console.log(temp["artists"]["items"][0]["id"]);
 	    }
 	}
 	xhr.send("");
@@ -60,6 +60,7 @@ function getArtist(name) {
 }
 
 getArtist("AC/DC");
+getArtist("KISS");
 
 function searchArtists(){
 
