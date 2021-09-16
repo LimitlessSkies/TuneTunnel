@@ -29,3 +29,15 @@ a {
 #header-profile {
   align-self: flex-end;
 }
+.search-container {
+  text-align: center;
+  width: 50%;
+  margin: 5rem auto;
+}
+#searchArtist {
+  padding: 0.5rem;
+  width: 325px;
+}
+.search-btn {
+  padding: 0.5rem;
+}
