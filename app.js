@@ -45,7 +45,7 @@ function getArtist(name) {
   //TODO: Encode name in approperate format for URI to accept Cyrillics
   xhr.open(
     "GET",
-    "https://api.spotify.com/v1/search?q=" + name + "&type=artist&limit=1",
+    "https://api.spotify.com/v1/search?q=" + name + "&type=artist",
     false
   );
 
