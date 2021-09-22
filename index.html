@@ -16,9 +16,13 @@
       </div>
     </header>
     <div class="search-container">
-      <form>
+      <form onsubmit="return false">
         <input type="text" id="searchArtist" placeholder="Artist..." />
-        <input class="search-btn" type="submit" onclick="" />
+        <input
+          class="search-btn"
+          type="submit"
+          onclick="getArtist(document.getElementById('searchArtist').value)"
+        />
       </form>
     </div>
     <script src="app.js"></script>

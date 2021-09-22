@@ -2,6 +2,7 @@ const CLiENT_SECRET = "da931e8a3f19400580c8bf707ba6ce83";
 const CLIENT_KEY = "e139a0fc9290404996790866f596dd74";
 const API_URL = "";
 var API_AUTHTOKEN = "";
+let selectedArtists = [];
 const start = Date.now();
 // request AUTH tokem from spotify
 //
@@ -56,11 +57,16 @@ function getArtist(name) {
     // Call a function when the state changes.
     if (this.readyState === XMLHttpRequest.DONE) {
       var temp = JSON.parse(xhr.responseText);
-      console.log(temp["artists"]);
+      selectedArtists.push(temp["artists"]);
+      console.log(selectedArtists);
+
+      document.getElementById("searchArtist").value = "";
+      // console.log(temp["artists"]);
     }
   };
   xhr.send("");
 }
 
-getArtist("Pink Floyd");
-getArtist("KISS");
+// getArtist("Pink Floyd");
+// getArtist("KISS");
+console.log(selectedArtists);
