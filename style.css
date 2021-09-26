@@ -8,9 +8,9 @@ body {
   background: rgb(2, 0, 36);
   background: radial-gradient(
     circle,
-    rgba(2, 0, 36, 1) 0%,
+    rgba(2, 0, 36, 1) -15%,
     rgba(22, 88, 9, 1) 21%,
-    rgba(0, 73, 18, 1) 54%
+    rgba(0, 73, 18, 1) 40%
   );
   background-attachment: fixed;
 }

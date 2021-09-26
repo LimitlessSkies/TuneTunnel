@@ -3,11 +3,9 @@ const CLIENT_KEY = "e139a0fc9290404996790866f596dd74";
 const API_URL = "";
 var API_AUTHTOKEN = "";
 let selectedArtists = [];
+
 const start = Date.now();
-// request AUTH tokem from spotify
-//
-// response example:
-// {"access_token":"BQDpzpwBFc-ZmisxTcuf6EJxKS-oNkcPOI0GDCToOQ2aLuS3q9qKaG3lEIiTD-P8ojtSZZMo38IoI9XiCg0","token_type":"Bearer","expires_in":3600}
+
 function getAuthToken() {
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "https://accounts.spotify.com/api/token", false);
@@ -42,10 +40,9 @@ function getArtist(name) {
 
   var xhr = new XMLHttpRequest();
 
-  //TODO: Encode name in approperate format for URI to accept Cyrillics
   xhr.open(
     "GET",
-    "https://api.spotify.com/v1/search?q=" + name + "&type=artist",
+    "https://api.spotify.com/v1/search?q=" + name + "&type=artist&limit=1",
     false
   );
 
@@ -60,13 +57,14 @@ function getArtist(name) {
       selectedArtists.push(temp["artists"]);
       console.log(selectedArtists);
 
+      localStorage.setItem(searchArtist.value, JSON.stringify(selectedArtists));
       document.getElementById("searchArtist").value = "";
       // console.log(temp["artists"]);
     }
   };
   xhr.send("");
 }
-
-// getArtist("Pink Floyd");
-// getArtist("KISS");
-console.log(selectedArtists);
+// Object.keys(localStorage).forEach(function (key, value) {
+//   JSON.parse(localStorage.getItem(key, value));
+//   console.log();
+// });
