@@ -65,9 +65,17 @@ function getArtist(name) {
   };
   xhr.send("");
 }
-Object.keys(localStorage).forEach(function (key) {
+// Object.keys(localStorage).forEach(function (key) {
+//   artistObj = JSON.parse(localStorage.getItem(key));
+// artistList = document.createElement("li");
+// artistList.innerText = artistObj;
+//   console.log(artistList);
+// });
+Object.keys(localStorage).forEach((key) => {
   artistObj = JSON.parse(localStorage.getItem(key));
-  artistList = document.createElement("li");
-  artistList.innerText = artistObj;
-  console.log(artistList);
+  artistList = document.getElementById("displayResults");
+  artistResult = document.createElement("li");
+  artistResult.innerHTML = artistObj[0].items[0].name;
+  artistList.appendChild(artistResult);
+  console.log(artistObj[0].items[0].name);
 });
