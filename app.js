@@ -58,13 +58,16 @@ function getArtist(name) {
       console.log(selectedArtists);
 
       localStorage.setItem(searchArtist.value, JSON.stringify(selectedArtists));
+
       document.getElementById("searchArtist").value = "";
       // console.log(temp["artists"]);
     }
   };
   xhr.send("");
 }
-// Object.keys(localStorage).forEach(function (key, value) {
-//   JSON.parse(localStorage.getItem(key, value));
-//   console.log();
-// });
+Object.keys(localStorage).forEach(function (key) {
+  artistObj = JSON.parse(localStorage.getItem(key));
+  artistList = document.createElement("li");
+  artistList.innerText = artistObj;
+  console.log(artistList);
+});
