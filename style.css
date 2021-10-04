@@ -41,3 +41,10 @@ a {
 .search-btn {
   padding: 0.5rem;
 }
+#displayResults {
+  display: flex;
+  list-style-type: none;
+}
+#displayResults > li {
+  margin-left: 1.5rem;
+}

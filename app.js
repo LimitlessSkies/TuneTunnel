@@ -74,9 +74,30 @@ Object.keys(localStorage).forEach((key) => {
   artistName.innerHTML = artistObj[0].items[0].name;
   artistResult.appendChild(artistName);
   artistList.appendChild(artistResult);
+
+  artistID = artistObj[0].items[0].id;
+
+  console.log(artistID);
+  artistName.addEventListener("click", getRelatedArtists);
 });
-artistName.addEventListener("click", getRelatedArtists);
 
 function getRelatedArtists(e) {
-  console.log(e.target);
+  var xhr = new XMLHttpRequest();
+  xhr.open(
+    "GET",
+    "https://api.spotify.com/v1/artists/" + artistID + "/related-artists",
+    false
+  );
+  xhr.setRequestHeader("Accept", "application/json");
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.setRequestHeader("Authorization", "Bearer " + API_AUTHTOKEN);
+  console.log("Bearer " + API_AUTHTOKEN);
+  xhr.onreadystatechange = function () {
+    // Call a function when the state changes.
+    if (this.readyState === XMLHttpRequest.DONE) {
+      var temp = JSON.parse(xhr.responseText);
+      console.log(temp);
+    }
+  };
+  xhr.send("");
 }
